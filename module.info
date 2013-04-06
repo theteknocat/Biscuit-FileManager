@@ -1,0 +1,3 @@
+name = "FileManager"
+description = "File manager with multiple views and Ajax user interface."
+version = "1.0"

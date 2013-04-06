@@ -1,0 +1,693 @@
+html {
+	height: 100%;
+}
+body#page-file-manager {
+	margin: 0 !important; /* Need to ensure we override margin added by the server info bar on local or staging */
+	padding: 0;
+	background: #eee !important;
+	color: #333 !important;
+	font-family: 'Lucida Grande', 'Lucida Sans Unicode', sans-serif !important;
+	height: 100%;
+}
+body#page-file-manager h1,
+body#page-file-manager h2,
+body#page-file-manager h3,
+body#page-file-manager h4,
+body#page-file-manager h5,
+body#page-file-manager p,
+body#page-file-manager th,
+body#page-file-manager td,
+body#page-file-manager ul,
+body#page-file-manager ol,
+body#page-file-manager dl,
+body#page-file-manager li,
+body#page-file-manager dd {
+	color: #333;
+	font-family: 'Lucida Grande', 'Lucida Sans Unicode', sans-serif !important;
+}
+body#page-file-manager p,
+body#page-file-manager th,
+body#page-file-manager td,
+body#page-file-manager ul,
+body#page-file-manager ol,
+body#page-file-manager dl,
+body#page-file-manager li,
+body#page-file-manager dd {
+	font-size: 12px;
+}
+body#page-file-manager p,
+body#page-file-manager h1,
+body#page-file-manager h2,
+body#page-file-manager h3,
+body#page-file-manager h4,
+body#page-file-manager h5 {
+	margin: 0 0 1.25em;
+}
+body#page-file-manager h1,
+body#page-file-manager h2,
+body#page-file-manager h3,
+body#page-file-manager h4,
+body#page-file-manager h5 {
+	font-weight: normal;
+}
+body#page-file-manager h1 {
+	font-size: 22px;
+}
+body#page-file-manager h2 {
+	font-size: 18px;
+}
+body#page-file-manager h3 {
+	font-size: 16px;
+}
+body#page-file-manager h4 {
+	font-size: 14px;
+}
+body#page-file-manager h5 {
+	font-size: 12px;
+	font-weight: bold;
+}
+body#page-file-manager a,
+body#page-file-manager a:visited,
+body#page-file-manager a:active,
+body#page-file-manager a:focus {
+	color: #00439e;
+	text-decoration: none;
+}
+body#page-file-manager a:hover {
+	text-decoration: underline;
+}
+body#page-file-manager .stripe-odd {
+	background: #f3f7f9;
+}
+body#page-file-manager .stripe-even {
+	background: #e0e9f0;
+}
+body#page-file-manager #bfm-header {
+	width: 100%;
+	height: 30px;
+	padding: 0;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 10;
+	background: #eee url(/framework/themes/sea_biscuit/images/controls-bg.gif) left center;
+	border-bottom: 1px solid #aaa;
+	-moz-box-shadow: 0 0 5px #444;
+	-webkit-box-shadow: 0 0 5px #444;
+	box-shadow: 0 0 5px #444;
+}
+body#page-file-manager #bfm-header.tiny-mce-dialog {
+	background: none !important;
+	border-bottom: none !important;
+	-moz-box-shadow: none !important;
+	-webkit-box-shadow: none !important;
+	box-shadow: none !important;
+}
+body#page-file-manager #bfm-header .controls {
+	margin: 0 5px;
+	padding: 5px 0;
+	background: none;
+	border: none;
+}
+body#page-file-manager #bfm-header .controls a {
+	display: none;
+}
+body#page-file-manager #bfm-header .controls span.admin {
+	margin: 0;
+	left: 0;
+}
+body#page-file-manager #bfm-header .controls a.active,
+body#page-file-manager #bfm-header .controls a:visited.active,
+body#page-file-manager #bfm-header .controls a:focus.active,
+body#page-file-manager #bfm-header .controls a:active.active {
+	background: #bbb url(/framework/themes/sea_biscuit/images/jquery-ui/ui-bg_inset-hard_100_bbbbbb_1x100.png) 50% 50% repeat-x;
+	text-decoration: none !important;
+	border: 1px solid #000 !important;
+}
+body#page-file-manager #bfm-content {
+	height: 100%;
+	min-height: 300px;
+	position: relative;
+	z-index: 5;
+}
+body#page-file-manager #bfm-content .content-inner {
+	position: absolute;
+	left: 0px;
+	top: 35px;
+	right: 0px;
+	bottom: 5px;
+	overflow: visible;
+	padding: 0;
+	background: #fff;
+	border: 1px solid #ccc;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+}
+body#page-file-manager #biscuit-user-messages {
+	z-index: 20;
+	position: absolute;
+	left: 10px;
+	top: 5px;
+	right: 10px;
+}
+body#page-file-manager #biscuit-user-messages a#user-messages-close,
+body#page-file-manager #biscuit-user-messages a#user-messages-close:visited,
+body#page-file-manager #biscuit-user-messages a#user-messages-close:active,
+body#page-file-manager #biscuit-user-messages a#user-messages-close:focus {
+	display: block;
+	position: absolute;
+	width: 15px;
+	height: 15px;
+	right: 7px;
+	top: 5px;
+	background: #c92c2c url(/framework/themes/sea_biscuit/images/x-button.png) left top no-repeat;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	-moz-box-shadow: 1px 1px 2px #000;
+	-webkit-box-shadow: 1px 1px 2px #000;
+	box-shadow: 1px 1px 2px #000;
+	border: 1px solid #9c1919;
+	text-indent: -3000em;
+	overflow: hidden;
+}
+body#page-file-manager #biscuit-user-messages a#user-messages-close:hover {
+	background-color: #9c1919;
+}
+body#page-file-manager #biscuit-user-messages div.error,
+body#page-file-manager #biscuit-user-messages div.notice,
+body#page-file-manager #biscuit-user-messages div.success {
+	-moz-box-shadow: 0 0 15px #000;
+	-webkit-box-shadow: 0 0 15px #000;
+	box-shadow: 0 0 15px #000;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	margin: 0 0 10px;
+}
+body#page-file-manager .ui-dialog .ui-dialog-content {
+	overflow: hidden;
+}
+#folder-list-outer {
+	position: relative;
+	width: 215px;
+	height: 100%;
+	padding: 0;
+	float: left;
+}
+body#page-file-manager #bfm-content #folder-list-outer .content-inner {
+	left: 5px;
+	overflow: auto !important;
+}
+dl#folder-list {
+	min-width: 208px;
+	float: left;
+	padding: 4px 0 0;
+}
+dl#folder-list,
+dl#folder-list dl {
+	margin: 0;
+}
+dl#folder-list dd.active dl {
+	display: block;
+}
+dl#folder-list dd.inactive dl,
+dl#folder-list dd.active dl dd.inactive dl {
+	display: none;
+}
+dl#folder-list dd {
+	margin: 0;
+}
+dl#folder-list dl dd {
+	position: relative;
+	clear: both;
+	margin: 0 0 0 2px;
+	padding: 1px 0 0;
+}
+dl#folder-list dl dd dl dd {
+	margin: 0 0 0 18px;
+}
+dl#folder-list dl dd a.expander {
+	display: block;
+	position: absolute;
+	width: 15px;
+	height: 15px;
+	margin: 0;
+	left: 0;
+	top: 3px;
+	padding: 0;
+	text-indent: -3000em;
+	overflow: hidden;
+}
+dl#folder-list a.folder,
+dl#folder-list a.folder:visited {
+	color: #333;
+	text-decoration: none;
+	margin: 0;
+	display: block;
+	font-size: 12px;
+	padding: 2px 4px 2px 24px;
+	margin: 0;
+	background: url(/framework/modules/file_manager/images/icons/16/folder.png) 4px center no-repeat;
+	white-space: nowrap;
+}
+dl#folder-list dl a.folder,
+dl#folder-list dl a.folder:visited {
+	margin: 0 0 0 15px !important;
+}
+dl#folder-list a.folder.active,
+dl#folder-list a.folder.active:visited {
+	background-color: #3775d8 !important;
+	color: #fff !important;
+}
+dl#folder-list a.folder.highlight,
+dl#folder-list a.folder.highlight:visited,
+dl#folder-list a.folder.highlight.active,
+dl#folder-list a.folder.highlight.active:visited {
+	background-color: #f0d915 !important;
+	color: #fff !important;
+}
+dl#folder-list a.folder:hover {
+	background-color: #ddd;
+}
+#file-list-outer {
+	position: relative;
+	height: 100%;
+	margin: 0 0 0 220px;
+	min-width: 700px;
+}
+body#page-file-manager #bfm-content #file-list-outer .content-inner {
+	right: 5px;
+}
+#file-list-outer .content-inner #folder-admin-buttons {
+	position: absolute;
+	z-index: 20;
+	top: 3px;
+	right: 1px;
+	margin: 0;
+	background: none;
+	border: none;
+	padding: 0;
+	display: none;
+}
+#file-list-outer #bfm-breadcrumbs {
+	background: none;
+	border-bottom: 1px solid #ddd;
+	padding: 4px;
+	margin: 0;
+	font-size: 10px;
+	line-height: 14px;
+	height: 18px;
+	position: relative;
+}
+#file-list-outer #bfm-breadcrumbs a,
+#file-list-outer #bfm-breadcrumbs a:visited {
+	display: block;
+	float: left;
+	padding: 2px 6px;
+	color: #333;
+	text-decoration: none;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
+#file-list-outer #bfm-breadcrumbs a:hover {
+	background: #ddd;
+	text-decoration: none;
+}
+#file-list-outer #bfm-breadcrumbs .spacer,
+#file-list-outer #bfm-breadcrumbs .active-item {
+	float: left;
+	padding: 2px 0;
+	color: #888;
+}
+#file-list-outer #bfm-breadcrumbs .active-item {
+	padding: 2px 6px;
+}
+#file-list-outer #upload-bar {
+	height: 50px;
+	padding: 10px 0;
+	background: #eee;
+	position: relative;
+	border-bottom: 1px solid #ddd;
+}
+#file-list-outer #upload-bar form label {
+	width: 70px;
+}
+#file-list-outer #upload-bar .instructions {
+	margin-left: 81px;
+}
+#file-list-outer #upload-bar.uploadify .instructions {
+	margin-top: 0;
+}
+#file-list-outer #upload-bar #bfm-file-fieldQueue {
+	display: none;
+}
+#file-list-outer #upload-bar #uploadify-progress {
+	width: 300px;
+	position: absolute;
+	top: 14px;
+	right: 30px;
+	display: none;
+}
+#file-list-outer #upload-bar #uploadify-progress #uploadify-current-file,
+#file-list-outer #upload-bar #uploadify-progress #uploadify-progress-info {
+	font-size: 10px;
+	height: 14px;
+}
+#file-list-outer #upload-bar #uploadify-progress #uploadify-progress-bar {
+	width: 280px;
+	height: 10px;
+}
+#file-list-outer #upload-bar #uploadify-progress #uploadify-cancel-all {
+	position: absolute;
+	right: 0;
+	top: 11px;
+}
+#file-list-outer .none-found {
+	margin: 0;
+	padding: 0;
+	color: #ccc;
+	position: absolute;
+	width: 100%;
+	top: 40%;
+	font-size: 24px;
+	text-align: center;
+}
+#file-list-outer #file-list-content {
+	position: absolute;
+	padding: 0;
+	left: 0;
+	top: 51px;
+	right: 0;
+	bottom: 0px;
+	overflow: auto;
+}
+#file-list-outer.with-upload #file-list-content {
+	top: 118px !important;
+}
+#file-list-outer.icon #file-list-content {
+	bottom: 23px !important;
+}
+#file-list-outer #file-list-content #file-list-selectable-area {
+	min-height: 100%;
+}
+table#file-list,
+table#sorting {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	table-layout: fixed;
+}
+table#file-list th,
+table#file-list td,
+table#sorting th {
+	border: none;
+}
+table#file-list td {
+	padding: 2px;
+	border-bottom: 1px solid #FFFFFF;
+}
+table#sorting {
+	height: 20px;
+}
+table#sorting th.sort-column {
+	font-size: 10px;
+	font-weight: normal;
+	height: 14px;
+	padding: 0;
+	border-right: 1px solid #aaa;
+	border-top: 1px solid #aaa;
+	border-bottom: 1px solid #aaa;
+}
+table#sorting th.sort-column.last {
+	border-right: none !important;
+}
+table#sorting a.sort-column,
+table#sorting a.sort-column:visited,
+table#sorting a.sort-column:active,
+table#sorting a.sort-column:focus {
+	height: 14px;
+	display: block;
+	padding: 2px 5px;
+	background: url(/framework/themes/sea_biscuit/images/jquery-ui/ui-bg_highlight-hard_100_bbbbbb_1x100.png) repeat-x scroll 50% 50% #BBBBBB;
+	color: #000;
+	text-decoration: none;
+}
+table#sorting a.sort-active,
+table#sorting a.sort-active:visited,
+table#sorting a.sort-active:active,
+table#sorting a.sort-active:focus,
+table#sorting a.sort-active:hover,
+table#sorting a.sort-column:hover {
+	background: url(/framework/themes/sea_biscuit/images/jquery-ui/ui-bg_inset-hard_100_bbbbbb_1x100.png) repeat-x scroll 50% 50% #BBBBBB !important;
+	text-decoration: none;
+}
+table#sorting a.sort-column span.ui-icon {
+	float: right;
+	margin: 0 0 0 5px;
+	height: 14px;
+}
+table#sorting a.sort-column span.ui-icon-triangle-1-n {
+	background-position: 0 -17px;
+}
+table#sorting a.sort-column span.ui-icon-triangle-1-s {
+	background-position: -64px -17px;
+}
+table#sorting a.sort-column.sort-by-name {
+	padding-left: 22px !important;
+}
+table#file-list tr.file-info {
+	cursor: default;
+}
+table#file-list tr.file-info:hover,
+table#file-list tr.file-info.hovered {
+	background: #ddd;
+}
+table#file-list tr.file-info.selected {
+	background: #3775d8 !important;
+	color: #fff !important;
+}
+table#file-list tr.file-info.highlight,
+table#file-list tr.file-info.selected.highlight {
+	background: #f0d915 !important;
+	color: #fff !important;
+}
+table#file-list tr.file-info td.filename {
+	padding-left: 22px;
+	background-position: 2px 3px;
+	background-repeat: no-repeat;
+}
+table#file-list tr.file-info td,
+table#file-list tr.file-info td {
+	color: inherit !important;
+}
+#file-list-outer #file-list-content div.icon {
+	float: left;
+	padding: 1px;
+}
+#file-list-outer #file-list-content .icon a,
+#file-list-outer #file-list-content .icon a:visited {
+	display: block;
+	width: 100%;
+	max-height: 100%;
+	padding: 0;
+	text-align: center;
+	text-decoration: none;
+	color: #333;
+	overflow: hidden;
+	cursor: default;
+	margin: 0;
+}
+#file-list-outer #file-list-content .icon a.highlight,
+#file-list-outer #file-list-content .icon a.highlight:visited {
+	background: none;
+}
+#file-list-outer #file-list-content .icon a:hover {
+	text-decoration: none;
+}
+#file-list-outer #file-list-content .icon a span.icon-image {
+	display: block;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	padding: 5px;
+	margin: 10px 10px 1px;
+	position: relative;
+}
+#file-list-outer #file-list-content .icon a span.icon-image img {
+	width: 100%;
+	height: 100%;
+	-moz-border-radius: 7px;
+	-webkit-border-radius: 7px;
+	border-radius: 7px;
+}
+#file-list-outer #file-list-content .icon a span.icon-image img {
+	background: transparent url(/framework/modules/file_manager/images/white-throbber.gif) center center no-repeat;
+}
+#file-list-outer #file-list-content .icon a:hover span.icon-image {
+	background: #ddd;
+}
+#file-list-outer #file-list-content .icon a.selected span.icon-image {
+	background: #3775d8 !important;
+}
+#file-list-outer #file-list-content .icon a.highlight span.icon-image,
+#file-list-outer #file-list-content .icon a.highlight.selected span.icon-image {
+	background: #f0d915 !important;
+}
+#file-list-outer #file-list-content .icon a span.filename {
+	display: block;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	border-radius: 8px;
+	text-align: center;
+	overflow: hidden;
+	word-wrap: break-word;
+	font-size: 10px;
+	padding: 2px 2px 3px;
+	margin: 0;
+	max-height: 44px;
+	line-height: 14px;
+}
+#file-list-outer #file-list-content .icon a:hover span.filename {
+	background: #ddd !important;
+}
+#file-list-outer #file-list-content .icon a.selected span.filename {
+	background: #3775d8 !important;
+	color: #fff !important;
+}
+#file-list-outer #file-list-content .icon a.highlight span.filename,
+#file-list-outer #file-list-content .icon a.highlight.selected span.filename {
+	background: #f0d915 !important;
+	color: #fff !important;
+}
+#file-list-outer #icon-sizer {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	height: 12px;
+	padding: 5px 10px;
+	border-top: 1px solid #ddd;
+	text-align: right;
+	font-size: 10px;
+	color: #888;
+}
+#file-list-outer #icon-sizer #icon-slider {
+	width: 200px;
+	float: right;
+}
+.ui-dialog #new-folder-form label,
+.ui-dialog #rename-file-form label {
+	width: 110px;
+}
+.ui-dialog #new-folder-form span.instructions,
+.ui-dialog #rename-file-form span.instructions {
+	margin-left: 121px;
+}
+#file-info-content #file-details #image-thumb {
+	float: left;
+	width: 202px;
+	margin: 0 20px 0 0;
+	overflow: visible;
+	position: relative;
+}
+#file-info-content #file-details #image-thumb img {
+	width: 200px;
+	height: 200px;
+	border: 1px inset #eee;
+	background: #fff;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	border-radius: 8px;
+}
+#file-info-content #file-details #file-info {
+	padding: 0;
+	margin: 0;
+	float: left;
+	width: 314px;
+}
+#file-info-content #file-details #file-info h4 {
+	font-size: 14px;
+	font-weight: bold;
+	margin: 0 0 0.5em;
+}
+#file-info-content #file-details #file-info #file-specs {
+	margin: 0 0 1.5em;
+	position: relative;
+}
+#file-info-content #file-details #file-info #file-specs #file-full-url-input {
+	width: 300px;
+}
+#file-info-content #file-details #file-info #file-specs p {
+	margin: 0;
+}
+#file-info-content #file-details #file-info #file-specs a.ui-button {
+	position: absolute;
+	margin: 0;
+	right: 0;
+	top: 52px;
+}
+#file-info-content #file-details #file-info #file-variants .variant-item {
+	padding: 3px 0;
+}
+#file-info-content #file-details #file-info #file-variants div a.ui-button {
+	float: right;
+	margin: 0 0 0 10px;
+}
+
+body#page-file-manager #biscuit-bottom-bar {
+	/* Make sure the server info bar is hidden as otherwise it covers up the icon size slider */
+	display: none !important;
+}
+body#page-file-manager #dragging-helper {
+	font-size: 10px;
+	padding: 2px 5px 5px;
+	background: #eee;
+	border: 1px solid #ccc;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	border-radius: 8px;
+	-moz-box-shadow: 1px 1px 3px #000;
+	-webkit-box-shadow: 1px 1px 3px #000;
+	box-shadow: 1px 1px 3px #000;
+	min-width: 150px;
+}
+body#page-file-manager #dragging-helper h5 {
+	margin: 0 0 5px;
+	padding: 0 0 0 20px;
+}
+body#page-file-manager #dragging-helper .ui-icon {
+	position: absolute;
+	top: 2px;
+	right: 5px;
+}
+body#page-file-manager #dragging-helper.many #drag-items {
+	padding-left: 20px;
+}
+body#page-file-manager #dragging-helper .helper-file-item {
+	padding: 2px 0;
+}
+body#page-file-manager #dragging-helper .helper-file-item img {
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+}
+#bfm-help-content {
+	display: none;
+}
+#bfm-help-content li {
+	margin: 0 0 5px;
+}
+
+body#page-file-manager .ui-selectable-helper {
+	border: 2px dotted #5485af;
+	background: rgba(0, 120, 255, 0.2);
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+}
+#help-dialog-content li {
+	margin: 5px 0;
+}
